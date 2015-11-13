@@ -1,0 +1,34 @@
+; This file in installations built from Master can be found in
+; /usr/src/freeswitch.git/debian
+; or
+; /usr/src/freeswitch/debian
+[Unit]
+Description=freeswitch
+After=syslog.target network.target local-fs.target
+
+[Service]
+; service
+Type=forking
+PIDFile=/usr/local/freeswitch/run/freeswitch.pid
+PermissionsStartOnly=true
+ExecStart=/usr/local/freeswitch/bin/freeswitch -u freeswitch -g freeswitch -ncwait -nonat -rp
+TimeoutSec=45s
+Restart=on-failure
+; exec
+WorkingDirectory=/usr/local/freeswitch/bin
+User=root
+Group=daemon
+LimitCORE=infinity
+LimitNOFILE=100000
+LimitNPROC=60000
+;LimitSTACK=240
+LimitRTPRIO=infinity
+LimitRTTIME=7000000
+IOSchedulingClass=realtime
+IOSchedulingPriority=2
+CPUSchedulingPolicy=rr
+CPUSchedulingPriority=89
+UMask=0007
+
+[Install]
+WantedBy=multi-user.target
