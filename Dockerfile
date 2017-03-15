@@ -6,7 +6,7 @@ RUN apt-get update --fix-missing && apt-get upgrade -y && apt-get install -y aut
         g++ git-core libjpeg-dev libncurses5-dev libtool make python-dev libspeexdsp-dev libspeexdsp1 libspeexdsp-dev          \
         pkg-config libperl-dev libgdbm-dev libdb-dev gettext libedit-dev libldns-dev                                           \
         libspandsp-dev libtiff-dev unixodbc unixodbc-dev sqlite3 libsqlite3-dev libcurl3 curl libcurl3-dev libpcre3            \
-        libpcre3-dev libspeex-dev speex libtool-bin git wget libhiredis-dev libsndfile-dev
+        libpcre3-dev libspeex-dev speex libtool-bin git wget libhiredis-dev libsndfile-dev yasm
 
 RUN echo "deb http://files.freeswitch.org/repo/deb/freeswitch-1.6/ jessie main" > /etc/apt/sources.list.d/freeswitch.list && \
     wget -O - http://files.freeswitch.org/repo/deb/freeswitch-1.6/key.gpg |apt-key add - &&                                  \
